@@ -1,0 +1,45 @@
+<div class="container">
+    <h2>Add New Post</h2>
+  
+    <form [formGroup]="photoForm" (ngSubmit)="onSubmit()">
+      
+      <div class="form-group">
+        <label for="albumId">Album ID</label>
+        <input type="number" id="albumId" formControlName="albumId" class="form-control" required>
+        <div *ngIf="photoForm.get('albumId')?.invalid && photoForm.get('albumId')?.touched" class="text-danger">
+          Album ID is required.
+        </div>
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="id">Post ID</label>
+        <input type="number" id="id" formControlName="id" class="form-control" required>
+        <div *ngIf="photoForm.get('id')?.invalid && photoForm.get('id')?.touched" class="text-danger">
+          Post ID is required.
+        </div>
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text" id="title" formControlName="title" class="form-control" required minlength="3">
+        <div *ngIf="photoForm.get('title')?.invalid && photoForm.get('title')?.touched" class="text-danger">
+          Title is required (min 3 characters).
+        </div>
+      </div>
+  
+      
+      <div class="form-group">
+        <label for="url">Image URL</label>
+        <input type="text" id="url" formControlName="url" class="form-control" required pattern="https?://.+">
+        <div *ngIf="photoForm.get('url')?.invalid && photoForm.get('url')?.touched" class="text-danger">
+          Must be a valid URL.
+        </div>
+      </div>
+  
+  
+      <button type="submit" class="btn btn-primary" [disabled]="photoForm.invalid">Create Post</button>
+    </form>
+  </div>
+  

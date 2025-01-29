@@ -1,0 +1,16 @@
+<div *ngIf="photo" class="photo-gallery">
+    <h1>{{ photo.title }}</h1>
+    
+    <div class="photo-info">
+      <p><strong>Album ID:</strong> {{ photo.albumId }}</p>
+      <p><strong>ID:</strong> {{ photo.id }}</p>
+      <p><strong>Title:</strong> {{ photo.title }}</p>
+      <p><strong>URL:</strong> <a [href]="photo.url" target="_blank">{{ photo.url }}</a></p>
+      <p><strong>Thumbnail URL:</strong> <a [href]="photo.thumbnailUrl" target="_blank">{{ photo.thumbnailUrl }}</a></p>
+    </div>
+    
+    <div class="photo-image">
+      <img  src= 'https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg' alt="{{ photo.title }}" />
+    </div>
+  </div>
+  

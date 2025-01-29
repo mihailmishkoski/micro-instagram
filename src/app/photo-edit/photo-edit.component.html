@@ -1,0 +1,41 @@
+<div *ngIf="photo" class="photo-edit-container">
+    <h2>Edit Photo</h2>
+  
+    <form #photoForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          [(ngModel)]="photo.title"
+          required
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="imageUrl">Image URL</label>
+        <input
+          type="text"
+          id="imageUrl"
+          name="imageUrl"
+          [(ngModel)]="photo.url"
+          required
+          class="form-control"
+        />
+      </div>
+  
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!photoForm.valid">
+          Save Changes
+        </button>
+      </div>
+    </form>
+  
+    <div *ngIf="photo.thumbnailUrl" class="preview-container">
+      <h3>Preview:</h3>
+      <img src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg" alt="{{ photo.title }}" class="img-fluid" />
+    </div>
+  </div>
+  
