@@ -1,15 +1,23 @@
-<div class="photo-gallery">
-  <button (click)="createPhoto()">Add New</button>
-    <div *ngFor="let photo of photos" class="photo-item">
-      <h3>{{ photo.title }}</h3>
-      <img 
-        src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg" 
-        alt="{{ photo.title }}" 
-      />
-      <button (click)="getPhotoDetails(photo.id)">Details</button>
-      <button (click)="editPhoto(photo.id)">Edit</button>
-      <button (click)="deletePhoto(photo.id)">Delete</button>
+<div class="create-photo-navbar">
+  <button (click)="createPhoto()" class="create-photo-button">Add New</button>
+</div>
+<cdk-virtual-scroll-viewport 
+  itemSize="400" 
+  class="photos-viewport"
+  (scrolledIndexChange)="nextBatch($event, (photos[photos.length-1]))">
+  <div *cdkVirtualFor="let photo of photos; let i = index" 
+       class="photo-card">
+    <img 
+      src="https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg" 
+      alt="{{ photo.title }}"
+      class="photo-image">
+    <div class="content">
+      <h3 class="photo-title">{{ photo.title }}</h3>
+      <div class="photo-buttons">
+        <button (click)="getPhotoDetails(photo.id)" class="photo-button">Details</button>
+        <button (click)="editPhoto(photo.id)" class="photo-button">Edit</button>
+        <button (click)="deletePhoto(photo.id)" class="photo-button">Delete</button>
+      </div>
     </div>
-      
   </div>
-  
+</cdk-virtual-scroll-viewport>

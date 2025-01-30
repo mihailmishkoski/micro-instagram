@@ -21,8 +21,8 @@ export class PhotoDetailsComponent {
 
     if(photoId)
     {
-      this.photoService.getPhotos().subscribe((photos) => {
-      this.photo = photos.find(p => p.id === photoId);
+      this.photoService.getPhotoById(photoId).subscribe((response) => {
+        this.photo = response.data;
       });
     }
   }

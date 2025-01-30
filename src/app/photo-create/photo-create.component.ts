@@ -16,7 +16,7 @@ export class PhotoCreateComponent {
   constructor(private fb: FormBuilder, private photoService: PhotoService, private router: Router) {
     this.photoForm = this.fb.group({
       albumId: [null],
-      id: [0],
+      id: [],
       title: [''],
       url: [''],
       thumbnailUrl: ['']

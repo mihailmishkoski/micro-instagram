@@ -1,7 +1,87 @@
-.photo-gallery img {
-    width: 150px;   
-    height: auto;   
-    object-fit: cover;  
-    border-radius: 5px; 
+.photos-viewport {
+  display: flex;
+  justify-content: center; 
+  align-items: flex-start; 
+  flex-direction: column;
+  padding: 10px;
+  overflow-y: auto;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+.photo-card {
+  width: 350px;
+  margin-bottom: 20px;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: auto; 
+  margin-right: auto; 
+}
+.photo-image {
+  width: 100%;
+  height: auto;
+  border-bottom: 2px solid #eee;
+}
+.content {
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photo-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  color: #333;
+  text-align: center;
+}
+.photo-buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 10px;
+}
+.photo-button {
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+.create-photo-navbar {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  padding: 10px 0;
+  width: 100%;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000; 
+  text-align: center;
+}
+.create-photo-button {
+  background-color: #3897f0;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: auto;
+  display: inline-block;
+}
+@media (max-width: 768px) {
+  .create-photo-button {
+    padding: 12px 24px;
+    font-size: 1rem;
   }
-  
+}

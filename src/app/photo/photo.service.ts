@@ -10,7 +10,7 @@ import { Response } from '../ApiResponse.model'
 export class PhotoService {
 
   private selectedPhoto = new BehaviorSubject<IPhoto | null>(null);
-
+  private apiUrl = "https://jsonplaceholder.typicode.com/photos";
   constructor(private http: HttpClient) {}
   
   createPhoto(photo: IPhoto): Observable<Response<IPhoto>> {
@@ -30,9 +30,8 @@ export class PhotoService {
     );
   }
    
-
-  getPhotos(): Observable<IPhoto[]> {
-    return this.http.get<IPhoto[]>('https://jsonplaceholder.typicode.com/photos');
+  getPhotos(offset: number, limit: number): Observable<IPhoto[]> {
+    return this.http.get<IPhoto[]>(`${this.apiUrl}?_start=${offset}&_limit=${limit}`);
   }
   getPhotoById(photoId: number): Observable<Response<IPhoto>> {
     return this.http.get<IPhoto>(`https://jsonplaceholder.typicode.com/photos/${photoId}`).pipe(
@@ -87,7 +86,6 @@ export class PhotoService {
     );
   }
 
-  
   setSelectedPhoto(photo: IPhoto) {
     this.selectedPhoto.next(photo);
   }

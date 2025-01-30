@@ -6,7 +6,7 @@ import { PhotoEditComponent } from '../photo-edit/photo-edit.component';
 import { FormsModule } from '@angular/forms';
 import { PhotoCreateComponent } from '../photo-create/photo-create.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 
@@ -21,6 +21,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    ScrollingModule
   ],
   exports: [
   ]
