@@ -11,8 +11,7 @@ import { Router } from '@angular/router';
 })
 export class PhotoCreateComponent {
   photoForm: FormGroup;
-  photoSer: any;
-
+  
   constructor(private fb: FormBuilder, private photoService: PhotoService, private router: Router) {
     this.photoForm = this.fb.group({
       albumId: [null],
